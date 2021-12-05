@@ -13,8 +13,18 @@ const data = [
   { session_name: null, classes: [{ class_name: 'second class', students: [{ student_name: 'adi' }] }] },
 ];
 
-function result(...data) {
+function replaceUndefinedOrNull(key, value) {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
+  
+  return value;
+}
+
+function result(data) {
   // Your Code Here
+  const json = JSON.stringify(data, replaceUndefinedOrNull);
+  return json;
   
 }
 
